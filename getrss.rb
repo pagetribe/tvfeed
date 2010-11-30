@@ -2,7 +2,18 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
-doc = Nokogiri::XML(open("http://tv.unsw.edu.au/40848B12-2BD9-11DF-AA9D123139020041/displayRSSFeed/displayRSSFeed"))
+#doc = Nokogiri::XML(open("http://tv.unsw.edu.au/40848B12-2BD9-11DF-AA9D123139020041/displayRSSFeed/displayRSSFeed"))
+doc = Nokogiri::XML(open("http://tv.unsw.edu.au/40848B12-2BD9-11DF-AA9D123139020041/displayRSSFeed"))
+
+doc.css("item").each do |node|
+#  puts node.css("media|content")[1]['fileSize']
+  puts node.css("media|title").text
+  p node.css("enclosure")[0]['length'] # get length from enclosure
+  puts node.css("media|group media|content")[0]['url'] # get first url from media:content as it has autostart=true
+  p "......................"
+end
+
+
 #puts doc.css('media|title')
 #puts doc.css('media|content').length
 #puts doc.at_xpath('//item/pubDate')
@@ -38,10 +49,4 @@ doc = Nokogiri::XML(open("http://tv.unsw.edu.au/40848B12-2BD9-11DF-AA9D123139020
 
 # this grabs the first of the elements with autostart=true
 
-doc.css("item").each do |node|
-#  puts node.css("media|content")[1]['fileSize']
-  puts node.css("media|title").text
-  p node.css("enclosure")[0]['length'] # get length from enclosure
-  puts node.css("media|group media|content")[0]['url'] # get first url from media:content as it has autostart=true
-  p "......................"
-end
+
