@@ -1,0 +1,6 @@
+/nbproject
+development.sqlite3
+#.lc
+db/*.sqlite3
+log/*.log
+/.redcar
