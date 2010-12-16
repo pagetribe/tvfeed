@@ -1,6 +1,4 @@
-/nbproject
-development.sqlite3
-#.lc
+.bundle
 db/*.sqlite3
 log/*.log
-/.redcar
+tmp/**/*
