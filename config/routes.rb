@@ -1,4 +1,8 @@
 Tvfeed::Application.routes.draw do
+  resources :videos
+
+  resources :widgets
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

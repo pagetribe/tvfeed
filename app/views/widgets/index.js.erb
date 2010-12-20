@@ -1,0 +1,14 @@
+var txt = ''
+
+txt += "<div id='tv_widget'>";
+txt += "<h2>UNSW widget</h2>";
+txt += "<ul>";
+<% for widget in @widgets do %>
+txt += "<li>";
+txt += "<%= escape_javascript(link_to widget.url, widget_url(widget)) %>";
+txt += "</li>"
+<% end %>
+txt += "</ul>"
+txt += "</div>"
+
+document.write(txt);
