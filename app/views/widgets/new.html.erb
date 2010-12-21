@@ -1,5 +1,30 @@
 <h1>New widget</h1>
 
-<%= render 'form' %>
+<%#= render 'form' %>
 
+<%#= form_for(@widget) do |f| %>
+<%= form_tag('/get_rss') do -%>
+  <% if @widget.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@widget.errors.count, "error") %> prohibited this widget from being saved:</h2>
+
+      <ul>
+      <% @widget.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag(:url, "TV collection URL:") %> 
+    <%= text_field_tag(:url, '', :size => 75) %> 
+  </div>
+  
+  <div class="actions">
+   <%= submit_tag 'Submit' %>
+  </div>
+<% end %>
+
+<br />
 <%= link_to 'Back', widgets_path %>

@@ -81,4 +81,16 @@ class WidgetsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def get_rss # Called from new.html.erb on submit
+    @widget = Widget.new(:url => params[:url])
+    if @widget.save
+      Video.set_feed_details( params[:url], @widget.id ) 
+    end
+    redirect_to :action => 'index'
+    #TODO sort out redirection
+#    render :layout => false
+#    redirect_to(widget_url)
+  end
+  
 end
