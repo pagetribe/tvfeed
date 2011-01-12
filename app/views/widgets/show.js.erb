@@ -1,0 +1,43 @@
+var txt = '';
+txt += "<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>";
+txt += "<link rel='stylesheet' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/themes/dot-luv/jquery-ui.css'>";
+txt += "<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js'></script>";
+txt += "<script type='text/javascript'>";
+txt += "$(document).ready(function() { ";
+txt +=    "$('#accordion').accordion(); ";
+txt +=  "});";
+txt += "</script>";
+
+txt += "<div id='accordion' style='width: 615px;'>";
+
+  <% @widget.videos.each do |video| %>
+      txt += "<h3><a href='#'><%= video.name %></a></h3>";
+      txt += "<div>";
+        txt += "<object height='316' width='540'>";
+          txt += "<embed  style='border: 1px solid #333333;' height='316' width='540' allowfullscreen='true' allowscriptaccess='always' type='application/x-shockwave-flash' src='<%= video.url %>'>";
+        txt += "</object>";
+      txt += "</div>";
+  <% end %>
+  
+txt += "</div>";
+
+
+
+
+//txt += "<script type='text/javascript'>";
+//txt += " $(document).ready(function() { alert('hello from TV embed app'); }); ";
+//txt += "</script> ";
+
+//txt += "<div>";
+//txt += "widget/show.js.erb This will write to the browser the view showing the video and css etc";
+
+//<% @widget.videos.each do |video| %>
+  //  txt += "<br />";
+    // txt += " <%= video.name %> <%= video.url %> ";
+    //txt += "<a href='<%= video.url %>'><%= video.name %></a>";
+//<% end %>
+
+//txt += "<br />";
+//txt += "</div>";
+
+document.write(txt);

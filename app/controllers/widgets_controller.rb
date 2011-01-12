@@ -19,6 +19,7 @@ class WidgetsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @widget }
+      format.js
     end
   end
 
@@ -86,7 +87,11 @@ class WidgetsController < ApplicationController
     @widget = Widget.new(:url => params[:url])
     if @widget.save
       Video.set_feed_details( params[:url], @widget.id ) 
+      # set up the embed code now that we have the individual videos.
+      @widget.set_embed_code
     end
+    
+    
     redirect_to :action => 'index'
     #TODO sort out redirection
 #    render :layout => false
