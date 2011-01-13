@@ -1,5 +1,5 @@
 class Widget < ActiveRecord::Base
-  has_many :videos
+  has_many :videos, :dependent => :destroy
   after_create :set_name_and_embed_code
   
   require 'nokogiri'
