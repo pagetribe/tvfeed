@@ -86,9 +86,11 @@ class WidgetsController < ApplicationController
   def get_rss # Called from new.html.erb on submit
     @widget = Widget.new(:url => params[:url])
     if @widget.save
-      Video.set_feed_details( params[:url], @widget.id ) 
+#  TODO add flash notice      
+#      @widget.
+#      Video.set_feed_details( params[:url], @widget.id ) 
       # set up the embed code now that we have the individual videos.
-      @widget.set_embed_code
+#      @widget.set_embed_code
     end
     
     
