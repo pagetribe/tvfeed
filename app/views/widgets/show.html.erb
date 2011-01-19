@@ -18,3 +18,24 @@
 
 <%= link_to 'Edit', edit_widget_path(@widget) %> |
 <%= link_to 'Back', widgets_path %>
+
+
+
+<script type='text/javascript'>
+$(document).ready(function() { 
+    $('#accordion').accordion();
+});
+</script>
+
+<div id='accordion' style='width: 615px;'>
+
+  <% @widget.videos.each do |video| %>
+      <h3><a href='#'><%= video.name %></a></h3>
+      <div>
+        <object height='316' width='540'>
+          <embed  style='border: 1px solid #333333;' height='316' width='540' allowfullscreen='true' allowscriptaccess='always' type='application/x-shockwave-flash' src='<%= video.url %>'>
+        </object>
+      </div>
+  <% end %>
+  
+</div>
