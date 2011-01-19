@@ -93,8 +93,9 @@ class WidgetsController < ApplicationController
 #      @widget.set_embed_code
     end
     
-    
-    redirect_to :action => 'index'
+    redirect_to(@widget, :notice => 'Widget was successfully created.')
+#    redirect_to :action => 'show', :id => @widget
+#    redirect_to :action => 'index'
     #TODO sort out redirection
 #    render :layout => false
 #    redirect_to(widget_url)

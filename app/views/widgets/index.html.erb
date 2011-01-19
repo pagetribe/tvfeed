@@ -1,15 +1,8 @@
 <h1>Listing widgets</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Url</th>
-    <th>Code</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= button_to 'Create New Widget', new_widget_path, :method => 'get'%>
 
+<table>
 <% @widgets.each do |widget| %>
   <tr>
     <td><h3><%= link_to widget.name, widget %></h3></td>
@@ -24,13 +17,16 @@
     </td>
   </tr>
   <tr>
-    <td><%= link_to 'Show', widget %></td>
-    <td><%= link_to 'Edit', edit_widget_path(widget) %></td>
-    <td><%= link_to 'Destroy', widget, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+      <%= link_to 'Show', widget %>
+      <%= link_to 'Edit', edit_widget_path(widget) %>
+      <%= link_to 'Destroy', widget, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Widget', new_widget_path %>
+<h4><%= link_to 'Create New Widget', new_widget_path %></h4>
+
