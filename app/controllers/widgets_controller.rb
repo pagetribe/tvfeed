@@ -101,4 +101,14 @@ class WidgetsController < ApplicationController
 #    redirect_to(widget_url)
   end
   
+  # show widget partial 
+  def preview_widget
+    @widget = Widget.find(params[:id])
+    respond_to do |format|
+      format.js {render :layout=>false}
+
+#      format.js {render :content_type => 'text/javascript'}
+    end
+  end
+  
 end
