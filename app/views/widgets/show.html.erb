@@ -4,16 +4,17 @@
 </p>
 
 <p>
-  <b>Url:</b>
-  <%= @widget.url %>
+  <b>UNSWTV Collection Url:</b>
+  <%= link_to @widget.url, @widget.url %>
 </p>
 
 <p>
-  <b>Code:</b>
+  <div class="grey_text">Copy and paste the following code where you want your UNSWTV viewer to appear.</div>
   <%= @widget.code %>
 </p>
 
-
+<br/><br/>
+<div class="grey_text">See what the embedded widget will look like.</div>
 <%= link_to 'Preview Widget', preview_widget_widget_path(:id => @widget.id),  :remote => true %>
 <!-- <%= button_to 'Preview Widget', preview_widget_widget_path(:id => @widget.id), :remote => true, :method => 'get' %> -->
 <div id='preview_widget'></div>

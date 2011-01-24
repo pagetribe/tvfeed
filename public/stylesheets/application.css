@@ -32,6 +32,10 @@ a {
   margin: 10px 0;
 }
 
+.grey_text {
+    color:grey;
+}
+
 #flash_notice {
   background-color: #CFC;
   border: solid 1px #6C6;
