@@ -14,15 +14,14 @@
 </p>
 
 
+<%= link_to 'Preview Widget', preview_widget_widget_path(:id => @widget.id),  :remote => true %>
+<!-- <%= button_to 'Preview Widget', preview_widget_widget_path(:id => @widget.id), :remote => true, :method => 'get' %> -->
+<div id='preview_widget'></div>
+<!-- used for testing partial without ajax <%= render 'widget' %> -->
+
+<br/><br/>
+
 <%= link_to 'Edit', edit_widget_path(@widget) %> |
 <%= link_to 'Back', widgets_path %>
 
-<br/>
 
-<%= link_to 'Preview', :action => 'preview_widget', :remote => true, :format => :js, :id => @widget.id %>
-<a href='#' id='preview'>Preview</a>
-
-<div id='preview_widget'></div>
-
-
-<!--<%= render 'widget' %> -->

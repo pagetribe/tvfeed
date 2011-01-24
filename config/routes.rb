@@ -1,10 +1,14 @@
 Tvfeed::Application.routes.draw do
   resources :videos
 
-  resources :widgets
+  resources :widgets do
+    member do
+      get 'preview_widget'
+    end
+  end
   
   match 'get_rss' => 'widgets#get_rss'
-  match 'preview_widget' => 'widgets#preview_widget'
+#  match 'preview_widget' => 'widgets#preview_widget'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

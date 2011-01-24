@@ -106,6 +106,7 @@ class WidgetsController < ApplicationController
     @widget = Widget.find(params[:id])
     respond_to do |format|
       format.js {render :layout=>false}
+      format.html { redirect_to(@widget, :notice => 'Widget was successfully created.') }
 
 #      format.js {render :content_type => 'text/javascript'}
     end
