@@ -2,6 +2,7 @@ class Video < ActiveRecord::Base
   belongs_to :widget
   require 'nokogiri'
   require 'open-uri'
+  validates :name, :presence => true
   
   # For each of the items in the xml get the title, and the url and save them with the corresponding widget id
   def self.set_feed_details(url, widget_id)

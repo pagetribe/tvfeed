@@ -1,7 +1,8 @@
 Tvfeed::Application.routes.draw do
-  resources :videos
+#     resources :videos 
 
   resources :widgets do
+    resources :videos
     member do
       get 'preview_widget'
     end

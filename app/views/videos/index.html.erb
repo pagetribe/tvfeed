@@ -2,9 +2,9 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Url</th>
-    <th>Widget</th>
+    <th>Video Name</th>
+    <th>Video Url</th>
+    <th>Show Widget</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,14 +14,13 @@
   <tr>
     <td><%= video.name %></td>
     <td><%= video.url %></td>
-    <td><%= video.widget %></td>
+    <td><%= link_to 'Show Widget', widget_path(video.widget.id) %></d>
     <td><%= link_to 'Show', video %></td>
     <td><%= link_to 'Edit', edit_video_path(video) %></td>
     <td><%= link_to 'Destroy', video, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
 <br />
 
 <%= link_to 'New Video', new_video_path %>
